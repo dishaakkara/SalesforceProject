@@ -1,0 +1,19 @@
+# Node
+node_modules/
+
+# Env files
+.env
+*.env
+.env.*
+src/config/.env
+src/config/.env.*
+
+# Playwright
+test-results/
+playwright-report/
+blob-report/
+storageState.json
+
+# Logs
+logs/
+*.log

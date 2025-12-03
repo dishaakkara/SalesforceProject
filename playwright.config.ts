@@ -1,5 +1,17 @@
 import { defineConfig, devices } from '@playwright/test';
+import dotenv from "dotenv";
+import path from "path";
 
+// Load default .env file
+if (!process.env.NODE_ENV) {
+  dotenv.config({
+    path: path.resolve(__dirname, "src/config/.env"),
+  });
+} else {
+  dotenv.config({
+    path: path.resolve(__dirname, `src/config/.env.${process.env.NODE_ENV}`),
+  });
+}
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -7,7 +19,6 @@ import { defineConfig, devices } from '@playwright/test';
 // import dotenv from 'dotenv';
 // import path from 'path';
 // dotenv.config({ path: path.resolve(__dirname, '.env') });
-
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
